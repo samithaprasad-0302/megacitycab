@@ -4,7 +4,7 @@
   <title>Booking Details</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAC25mXxrVn9pTIFZTrH8TokvdZYwZHq9I&libraries=places"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=aIzaSyAC25mXxrVn9pTIFZTrH8TokvdZYwZHq9I&libraries=places"></script>
   <style>
     body {
       font-family: Arial, sans-serif;

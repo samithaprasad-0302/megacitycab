@@ -22,7 +22,7 @@ import org.json.JSONArray;
 
 @WebServlet("/processBooking")
 public class ProcessBookingServlet extends HttpServlet {
-    private static final String GOOGLE_API_KEY = "AIzaSyAC25mXxrVn9pTIFZTrH8TokvdZYwZHq9I"; // Replace with your Google API key
+    private static final String GOOGLE_API_KEY = "aIzaSyAC25mXxrVn9pTIFZTrH8TokvdZYwZHq9I"; // Replace with your Google API key
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
