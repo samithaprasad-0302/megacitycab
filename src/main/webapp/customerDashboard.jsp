@@ -9,7 +9,6 @@
 <head>
   <title>Customer Dashboard - Book a Car</title>
   <style>
-
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -18,7 +17,6 @@
       background-size: cover;
       color: white;
     }
-
 
     .dashboard-container {
       width: 85%;
@@ -30,7 +28,6 @@
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.16);
       padding-bottom: 30px;
     }
-
 
     .header {
       display: flex;
@@ -46,7 +43,7 @@
       margin: 0;
     }
 
-    .logout-button {
+    .logout-button, .profile-button {
       padding: 10px 15px;
       background-color: #dc3545;
       color: white;
@@ -55,12 +52,21 @@
       border-radius: 5px;
       font-size: 16px;
       transition: 0.3s;
+      text-decoration: none;
     }
 
-    .logout-button:hover {
+    .logout-button:hover, .profile-button:hover {
       background-color: #c82333;
     }
 
+    .profile-button {
+      background-color: #092e57;
+      margin-right: 10px;
+    }
+
+    .profile-button:hover {
+      background-color: #0056b3;
+    }
 
     table {
       width: 100%;
@@ -86,7 +92,6 @@
     tr:nth-child(even) {
       background-color: #f9f9f9;
     }
-
 
     .book-button, .cancel-button {
       padding: 8px 15px;
@@ -121,7 +126,6 @@
       border-radius: 5px;
     }
 
-    /* Status Styles */
     .status-paid {
       color: green;
       font-weight: bold;
@@ -137,7 +141,6 @@
       font-weight: bold;
     }
 
-    /* Page Heading */
     h2 {
       text-align: center;
       color: #FFD700;
@@ -151,15 +154,14 @@
   if (successMessage != null) {
 %>
 <script>
-  alert("<%= successMessage %>"); // ✅ Shows the message as an alert
+  alert("<%= successMessage %>");
 </script>
 <%
-    session.removeAttribute("successMessage"); // ✅ Clears it after displaying
+    session.removeAttribute("successMessage");
   }
 %>
 
 <div class="dashboard-container">
-
 
   <div class="header">
     <h2>Welcome,
@@ -172,19 +174,20 @@
         }
       %>
     </h2>
-    <a href="logout" class="logout-button">Logout</a>
-
+    <div>
+      <a href="manageProfile.jsp" class="profile-button">Manage Profile</a>
+      <a href="logout" class="logout-button">Logout</a>
+    </div>
   </div>
-
 
   <h2>Available Cars for Booking</h2>
 
-  <%
+    <%
     List<Car> carList = (List<Car>) request.getAttribute("availableCars");
     if (carList == null) carList = new ArrayList<>();
   %>
 
-  <% if (!carList.isEmpty()) { %>
+    <% if (!carList.isEmpty()) { %>
   <table>
     <thead>
     <tr>
@@ -214,17 +217,17 @@
     <% } %>
     </tbody>
   </table>
-  <% } else { %>
+    <% } else { %>
   <p style="text-align: center; color: red;">No available cars at the moment.</p>
-  <% } %>
+    <% } %>
 
   <h2>My Bookings</h2>
 
-  <%
+    <%
     List<Map<String, String>> customerBookings = (List<Map<String, String>>) request.getAttribute("customerBookings");
   %>
 
-  <% if (customerBookings != null && !customerBookings.isEmpty()) { %>
+    <% if (customerBookings != null && !customerBookings.isEmpty()) { %>
   <table>
     <thead>
     <tr>

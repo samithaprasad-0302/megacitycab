@@ -13,9 +13,17 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import org.json.JSONObject;
+import org.json.JSONArray;
 
 @WebServlet("/processBooking")
 public class ProcessBookingServlet extends HttpServlet {
+    private static final String GOOGLE_API_KEY = "AIzaSyAC25mXxrVn9pTIFZTrH8TokvdZYwZHq9I"; // Replace with your Google API key
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         String username = (String) session.getAttribute("username");
@@ -30,7 +38,9 @@ public class ProcessBookingServlet extends HttpServlet {
         String dropoffLocation = request.getParameter("dropoffLocation");
         String bookingDate = request.getParameter("bookingDate");
         String paymentMethod = request.getParameter("paymentMethod");
-        double distance = Double.parseDouble(request.getParameter("distance"));
+        String distanceStr = request.getParameter("distance"); // Get the autofilled distance
+
+        double distance = (distanceStr != null && !distanceStr.isEmpty()) ? Double.parseDouble(distanceStr) : 0;
 
         int carID = Integer.parseInt(request.getParameter("carID"));
         int driverID = Integer.parseInt(request.getParameter("driverID"));
@@ -71,9 +81,7 @@ public class ProcessBookingServlet extends HttpServlet {
 
                 conn.commit();
 
-
                 session.setAttribute("successMessage", "Booking successful! Please wait for the driver's response.");
-
 
                 response.sendRedirect("customerDashboard");
 
