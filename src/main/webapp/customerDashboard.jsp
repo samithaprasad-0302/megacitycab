@@ -267,6 +267,7 @@
           <input type="hidden" name="bookingDate" value="<%= booking.get("bookingDate") %>">
           <input type="hidden" name="rentalPricePerKm" value="<%= booking.get("rentalPricePerKm") %>">
           <input type="hidden" name="distance" value="<%= booking.get("distance") %>">
+          <input type="hidden" name="paymentMethod" value="<%= booking.get("paymentMethod") %>">
           <button type="submit" class="pay-button">Pay Now</button>
         </form>
         <% } else if ("Paid".equals(booking.get("paymentStatus"))) { %>

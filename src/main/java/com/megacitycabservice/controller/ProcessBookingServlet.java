@@ -22,7 +22,7 @@ import org.json.JSONArray;
 
 @WebServlet("/processBooking")
 public class ProcessBookingServlet extends HttpServlet {
-    private static final String GOOGLE_API_KEY = "aIzaSyAC25mXxrVn9pTIFZTrH8TokvdZYwZHq9I"; // Replace with your Google API key
+    private static final String GOOGLE_API_KEY = "AIzaSyAC25mXxrVn9pTIFZTrH8TokvdZYwZHq9I";
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
@@ -38,7 +38,7 @@ public class ProcessBookingServlet extends HttpServlet {
         String dropoffLocation = request.getParameter("dropoffLocation");
         String bookingDate = request.getParameter("bookingDate");
         String paymentMethod = request.getParameter("paymentMethod");
-        String distanceStr = request.getParameter("distance"); // Get the autofilled distance
+        String distanceStr = request.getParameter("distance");
 
         double distance = (distanceStr != null && !distanceStr.isEmpty()) ? Double.parseDouble(distanceStr) : 0;
 
