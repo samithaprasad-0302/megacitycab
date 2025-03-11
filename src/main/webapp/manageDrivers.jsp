@@ -22,22 +22,15 @@
 
 
         .navbar {
-            background-color: rgba(0, 0, 0, 0.9);
+            background-color: #333;
             padding: 15px;
             text-align: center;
-            display: flex;
-            justify-content: center;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            left: 0;
-            z-index: 1000;
         }
         .navbar a {
             color: white;
             text-decoration: none;
             font-size: 18px;
-            padding: 12px 20px;
+            padding: 10px 20px;
             margin: 0 10px;
             transition: 0.3s;
         }
@@ -153,11 +146,11 @@
 
 
 <div class="navbar">
-    <a href="manageCars">🚗 Manage Cars</a>
-    <a href="manageDrivers">👨‍✈️ Manage Drivers</a>
-    <a href="manageBookings">📖 Manage Customer Bookings</a>
-    <a href="adminManageCustomers">👤 Manage Customers</a>
-    <a href="calculateBill">🧾 payments</a>
+    <a href="manageCars">Manage Cars</a>
+    <a href="manageDrivers"class="active">Manage Drivers</a>
+    <a href="manageBookings" >Manage Customer Bookings</a>
+    <a href="adminManageCustomers">Manage Customers</a>
+    <a href="calculateBill">Payments</a>
     <a href="logout" style="color: red; font-weight: bold;">Logout</a>
 </div>
 

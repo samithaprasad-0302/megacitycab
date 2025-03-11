@@ -74,7 +74,7 @@
             display: block;
             font-weight: bold;
             margin-bottom: 5px;
-            color: rgba(0, 0, 0, 0.93);
+            color: rgba(0, 0, 0, 0.96);
         }
 
         .form-group input, .form-group textarea {

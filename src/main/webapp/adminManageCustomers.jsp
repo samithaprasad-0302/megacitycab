@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Customers - Mega City Cab Service</title>
     <style>
-        /* Global Styles */
+
         body {
             font-family: Arial, sans-serif;
             background:url("images/MEGACITY CABS (11).png")no-repeat center center fixed;
@@ -18,7 +18,7 @@
             padding: 0;
         }
 
-        /* Navbar */
+
         .navbar {
             background-color: #333;
             padding: 15px;
@@ -41,7 +41,7 @@
             border-radius: 5px;
         }
 
-        /* Container */
+
         .container {
             width: 90%;
             max-width: 1200px;
@@ -57,7 +57,7 @@
             color: #333;
         }
 
-        /* Search Bar */
+
         .search-box {
             text-align: center;
             margin-bottom: 20px;
@@ -82,7 +82,7 @@
             background-color: #0056b3;
         }
 
-        /* Table Styling */
+
         table {
             width: 100%;
             border-collapse: collapse;
@@ -104,7 +104,7 @@
             background-color: #f1f1f1;
         }
 
-        /* Action Buttons */
+
         .edit-btn {
             background-color: #FFC107;
             padding: 8px 12px;
@@ -129,7 +129,7 @@
             background-color: #C82333;
         }
 
-        /* Footer */
+
         .footer {
             text-align: center;
             padding: 15px;
@@ -144,17 +144,17 @@
 </head>
 <body>
 
-<!-- Navbar -->
+
 <div class="navbar">
     <a href="manageCars">🚗 Manage Cars</a>
     <a href="manageDrivers">👨‍✈️ Manage Drivers</a>
     <a href="manageBookings">📖 Manage Customer Bookings</a>
-    <a href="adminManageCustomers">👤 Manage Customers</a>
+    <a href="adminManageCustomers"class="active">👤 Manage Customers</a>
     <a href="calculateBill">🧾 payments</a>
     <a href="logout" style="color: red; font-weight: bold;">Logout</a>
 </div>
 
-<!-- Search Bar -->
+
 <div class="search-box">
     <form action="adminManageCustomers" method="get">
         <input type="text" name="search" placeholder="Search by Name or NIC">
@@ -162,7 +162,7 @@
     </form>
 </div>
 
-<!-- Customers List -->
+
 <div class="container">
     <h1>Manage Customers</h1>
 
@@ -214,7 +214,7 @@
     <% } %>
 </div>
 
-<!-- Footer -->
+
 <div class="footer">
     <p>&copy; 2025 Mega City Cab Service. All rights reserved.</p>
 </div>

@@ -39,12 +39,12 @@
             border-radius: 5px;
         }
 
-        /* About Content */
+
         .container {
             width: 80%;
             margin: 50px auto;
             padding: 20px;
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.94);
             border-radius: 10px;
             text-align: center;
         }
