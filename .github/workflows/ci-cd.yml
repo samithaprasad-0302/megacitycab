@@ -44,20 +44,13 @@ jobs:
         run: mvn clean test
       - name: Build WAR
         run: mvn package
-      - name: Archive WAR
-        uses: actions/upload-artifact@v3
-        with:
-          name: MegaCityCab-WAR
-          path: target/MegaCityCab-1.0-SNAPSHOT.war
+      # Temporarily remove Archive WAR step
   deploy:
     needs: build-and-test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Download WAR
-        uses: actions/download-artifact@v3
-        with:
-          name: MegaCityCab-WAR
-          path: target/
+      - name: Build WAR Locally (Simulated)
+        run: mvn package
       - name: Deploy to Tomcat (Simulated)
         run: echo "Deploying MegaCityCab-1.0-SNAPSHOT.war to Tomcat server"
