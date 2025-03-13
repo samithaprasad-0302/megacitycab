@@ -6,9 +6,27 @@ on:
   pull_request:
     branches: [ main, development, staging, regression, product ]
 
+permissions:
+  contents: read
+  actions: write
+  artifacts: write
+
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: megacitycabdb_test
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping --silent"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=3
     steps:
       - uses: actions/checkout@v3
       - name: Set up JDK 17
@@ -17,6 +35,12 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
       - name: Build and Test
+        env:
+          DB_HOST: 127.0.0.1
+          DB_PORT: 3306
+          DB_USER: root
+          DB_PASSWORD: root
+          DB_NAME: megacitycabdb_test
         run: mvn clean test
       - name: Build WAR
         run: mvn package
