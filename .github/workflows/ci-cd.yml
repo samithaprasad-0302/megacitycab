@@ -1,0 +1,39 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, development, staging, regression, product ]
+  pull_request:
+    branches: [ main, development, staging, regression, product ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+      - name: Build and Test
+        run: mvn clean test
+      - name: Build WAR
+        run: mvn package
+      - name: Archive WAR
+        uses: actions/upload-artifact@v3
+        with:
+          name: MegaCityCab-WAR
+          path: target/MegaCityCab-1.0-SNAPSHOT.war
+  deploy:
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Download WAR
+        uses: actions/download-artifact@v3
+        with:
+          name: MegaCityCab-WAR
+          path: target/
+      - name: Deploy to Tomcat (Simulated)
+        run: echo "Deploying MegaCityCab-1.0-SNAPSHOT.war to Tomcat server"
